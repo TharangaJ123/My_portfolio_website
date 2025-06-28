@@ -6,7 +6,6 @@ const About = () => {
     { icon: User, label: 'Name', value: 'J.K.C Tharanga Jayawardhana' },
     { icon: GraduationCap, label: 'Degree', value: 'BSc Software Engineering' },
     { icon: MapPin, label: 'Location', value: 'Malabe,Sri Lanka' },
-    { icon: Calendar, label: 'Graduation', value: 'Expected 2027' },
   ];
 
   const containerVariants = {
@@ -116,7 +115,7 @@ const About = () => {
                 Driven by curiosity and a passion for building impactful software, I specialize in
                 full-stack web development and backend systems. I currently intern at Sri Lanka Telecom PLC,
                 where I develop secure and scalable RESTful APIs using Java Spring Boot, contributing to internal 
-                enterprise applications with Azure authentication and Oracle databases in Agile environments.
+                enterprise applications with Azure authentication and databases in Agile environments.
               </p>
               
               <p>

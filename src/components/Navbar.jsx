@@ -69,25 +69,26 @@ const Navbar = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden z-50 ml-1">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-blue-400 p-2"
+              className="text-gray-300 hover:text-blue-400 p-2 focus:outline-none"
+              aria-label="Open navigation menu"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-900/95 backdrop-blur-md rounded-lg mt-2">
+          <div className="fixed inset-0 top-16 bg-gray-900/95 backdrop-blur-md z-40 flex flex-col items-center justify-start w-full min-h-[calc(100vh-4rem)] transition-all duration-300">
+            <div className="w-full px-2 pt-6 pb-8 space-y-2 sm:px-3">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-gray-300 hover:text-blue-400 block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200"
+                  className="block w-full text-gray-300 hover:text-blue-400 px-3 py-3 rounded-md text-lg font-medium transition-colors duration-200 text-center"
                 >
                   {item.name}
                 </button>

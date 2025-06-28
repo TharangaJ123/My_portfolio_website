@@ -4,12 +4,13 @@ import { ExternalLink, Github, Code, Globe, Database } from 'lucide-react';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [expandedProject, setExpandedProject] = useState(null);
 
   const projects = [
     {
       id: 1,
       title: 'Sevana Care - Elderly Care App',
-      description: 'A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.',
+      description: 'SevanaCare is a compassionate digital solution built to empower and support the elderly in navigating their daily lives with independence, dignity, and confidence. As technology rapidly evolves, many senior citizens are left behind — facing difficulties in managing medications, contacting loved ones, and accessing basic service.',
       image: '/elders.jpeg',
       technologies: ['React Native'],
       category: 'mobile',
@@ -20,7 +21,7 @@ const Projects = () => {
     {
       id: 2,
       title: 'Outsource Security Officers Attendance Management System - Sri Lanka Telecome HQ',
-      description: 'Real-time chat application with AI-powered responses using OpenAI API. Built with React, Socket.io, and Express.js.',
+      description: 'Developed a Security Management System for SLT Headquarters, Colombo 01, to manage outsourced security staff with real-time attendance tracking, role-based access control, and Azure AD authentication. Included an automated email system for alerts and reports, improving security oversight and administrative efficiency.',
       image: '/security.png',
       technologies: ['React', 'Java Springboot', 'Azure','Nodemailer','Framer Motion','JWT'],
       category: 'web',
@@ -31,7 +32,7 @@ const Projects = () => {
     {
       id: 3,
       title: 'BluePulse - Accademic',
-      description: 'A comprehensive task management system with drag-and-drop functionality, team collaboration, and real-time updates.',
+      description: 'BluePulse - Water Purification Management System BluePulse is a full-featured web application designed to streamline and manage operations for water purification companies. Built using the MERN stack, it covers everything from water quality records, source management, user and employee handling, appointment bookings, to online sales and feedback',
       image: '/bluepulse.png',
       technologies: ['React', 'Node.js', 'Next.js', 'Express', 'Framer Motion','MongoDB','JWT','Nodemailer'],
       category: 'web',
@@ -178,9 +179,19 @@ const Projects = () => {
                 {/* Project Content */}
                 <div className="p-4 sm:p-6">
                   <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-3">
-                    {project.description}
-                  </p>
+                  <div className="mb-3 sm:mb-4">
+                    <p className={`text-gray-400 text-xs sm:text-sm ${expandedProject === project.id ? '' : 'line-clamp-3'}`}>
+                      {project.description}
+                    </p>
+                    {project.description.length > 120 && (
+                      <button
+                        className="text-blue-400 hover:underline text-xs font-medium mt-1 focus:outline-none"
+                        onClick={() => setExpandedProject(expandedProject === project.id ? null : project.id)}
+                      >
+                        {expandedProject === project.id ? 'Show less' : 'Read more'}
+                      </button>
+                    )}
+                  </div>
                   
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">

@@ -71,43 +71,26 @@ const Skills = () => {
     }
   ];
 
-  // Additional skills with icons
+  // Additional skills with images
   const additionalSkills = [
-    { name: 'JavaScript', icon: '⚡' },
-    { name: 'Python', icon: '🐍' },
-    { name: 'Java', icon: '☕' },
-    { name: 'C#', icon: '⚙️' },
-    { name: 'TypeScript', icon: '📘' },
-    { name: 'React', icon: '⚛️' },
-    { name: 'Vue.js', icon: '💚' },
-    { name: 'Angular', icon: '🅰️' },
-    { name: 'Node.js', icon: '🟢' },
-    { name: 'Express.js', icon: '🚂' },
-    { name: 'Next.js', icon: '⚡' },
-    { name: 'Tailwind CSS', icon: '🎨' },
-    { name: 'MongoDB', icon: '🍃' },
-    { name: 'PostgreSQL', icon: '🐘' },
-    { name: 'MySQL', icon: '🐬' },
-    { name: 'Redis', icon: '🔴' },
-    { name: 'Git', icon: '📝' },
-    { name: 'Docker', icon: '🐳' },
-    { name: 'Kubernetes', icon: '⚓' },
-    { name: 'AWS', icon: '☁️' },
-    { name: 'Azure', icon: '🔵' },
-    { name: 'Cypress', icon: '🌲' },
-    { name: 'GraphQL', icon: '🔷' },
-    { name: 'Redux', icon: '🔄' },
-    { name: 'TensorFlow', icon: '🧠' },
-    { name: 'PyTorch', icon: '🔥' },
-    { name: 'React Native', icon: '📱' },
-    { name: 'Flutter', icon: '🦋' },
-    { name: 'Linux', icon: '🐧' },
-    { name: 'Webpack', icon: '📦' },
-    { name: 'Vite', icon: '⚡' },
-    { name: 'Prisma', icon: '🟦' },
-    { name: 'FastAPI', icon: '🚀' },
-    { name: 'Micro-services', icon: '🔗' },
-    { name: 'Apollo Client', icon: '🟣' }
+    { name: 'JavaScript', img: '/languages_img/js.svg' },
+    { name: 'Python', img: '/languages_img/python.svg' },
+    { name: 'Java', img: '/languages_img/java.svg' },
+    { name: 'Spring Boot', img: '/languages_img/springboot.svg' },
+    { name: 'C#', img: '/languages_img/cshrp.svg' },
+    { name: '.NET', img: '/languages_img/aspnet.svg' },
+    { name: 'TypeScript', img: '/languages_img/ts.svg' },
+    { name: 'React', img: '/languages_img/react.svg' },
+    { name: 'Vue.js', img: '/languages_img/vue.svg' },
+    { name: 'Angular', img: '/languages_img/angular.svg' },
+    { name: 'MySQL', img: '/languages_img/mysql.svg' },
+    { name: 'PostgreSQL', img: '/languages_img/postgresql.svg' },
+    { name: 'Azure', img: '/languages_img/azure.svg' },
+    { name: 'Kotlin', img: '/languages_img/kotlin.svg' },
+    { name: 'R', img: '/languages_img/R.svg' },
+    { name: 'Figma', img: '/languages_img/figma.svg' },
+    { name: 'Adobe XD', img: '/languages_img/adobexd.svg' },
+    { name: 'Adobe AI', img: '/languages_img/adobeai.svg' }
   ];
 
   useEffect(() => {
@@ -270,14 +253,11 @@ const Skills = () => {
                   backdrop-blur-sm
                 "
               >
-                <div className="
-                  text-lg sm:text-2xl mb-1 sm:mb-2 
-                  text-gray-200 dark:text-gray-100
-                  transition-transform
-                  hover:scale-110
-                ">
-                  {skill.icon}
-                </div>
+                <img
+                  src={skill.img}
+                  alt={skill.name}
+                  className="w-7 h-7 sm:w-9 sm:h-9 object-contain mb-1 sm:mb-2"
+                />
                 <span className="
                   text-gray-300 dark:text-gray-300 
                   text-xs font-medium 

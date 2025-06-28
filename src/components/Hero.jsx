@@ -193,7 +193,7 @@ const Hero = () => {
             </motion.h1>
             {/* Subtitle/Tagline */}
             <div className="text-base sm:text-lg text-blue-200 font-medium mb-4">
-              Software Engineering Undergraduate | Building Modern Solutions
+              Software Engineering Intern | Building Modern Solutions
             </div>
             {/* Dynamic Title with enhanced animation */}
             <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 font-medium min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center lg:justify-start overflow-hidden mb-4">

@@ -108,26 +108,29 @@ const About = () => {
             className="space-y-4 sm:space-y-6"
           >
             <h3 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">
-              A passionate Software Engineering student with a love for innovation
+              Software Engineer Intern | Web Development | AI Enthusiast | Continuous Learner
             </h3>
             
             <div className="space-y-3 sm:space-y-4 text-gray-300 leading-relaxed text-sm sm:text-base">
               <p>
-                I'm currently pursuing my Bachelor's degree in Software Engineering, where I've developed 
-                a strong foundation in programming fundamentals, data structures, algorithms, and software 
-                development methodologies.
+                Driven by curiosity and a passion for building impactful software, I specialize in
+                full-stack web development and backend systems. I currently intern at Sri Lanka Telecom PLC,
+                where I develop secure and scalable RESTful APIs using Java Spring Boot, contributing to internal 
+                enterprise applications with Azure authentication and Oracle databases in Agile environments.
               </p>
               
               <p>
-                My academic journey has been complemented by hands-on projects and collaborative work, 
-                allowing me to apply theoretical knowledge to real-world problems. I'm particularly 
-                interested in web development, artificial intelligence, and creating user-centric solutions.
+                Previously, I interned at Tekly Solutions, where I gained hands-on experience in both 
+                the MERN stack and .NET technologies, built CI/CD pipelines using Azure DevOps, 
+                and collaborated with cross-functional teams to create responsive, accessible UI components.
               </p>
               
               <p>
-                When I'm not coding or studying, you can find me exploring new technologies, contributing 
-                to open-source projects, or participating in hackathons. I believe in continuous learning 
-                and staying updated with the latest industry trends.
+                I'm particularly excited by the intersection of web development and artificial intelligence, 
+                and I thrive on solving real-world problems with scalable, user-centric solutions. Outside 
+                of work, I actively explore new technologies, contribute to open-source projects, and participate 
+                in hackathons. I believe in continuous learning, adaptability, and always striving to build better, 
+                smarter systems.
               </p>
             </div>
 

@@ -295,7 +295,7 @@ const Hero = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             {/* Main CTA Buttons */}
-            <div className="space-y-4 sm:space-y-6 w-full max-w-sm sm:max-w-md">
+            <div className="space-y-4 sm:space-y-6 w-full mt-44 max-w-sm sm:max-w-md">
               <motion.button
                 onClick={scrollToContact}
                 whileHover={{ scale: 1.05, y: -3 }}

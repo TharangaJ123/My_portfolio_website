@@ -131,7 +131,7 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-16 bg-gray-900">
+    <section id="skills" className="py-12 sm:py-16 bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
@@ -139,20 +139,20 @@ const Skills = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <motion.div variants={itemVariants} className="mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <motion.div variants={itemVariants} className="mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
               Skills & <span className="text-blue-400">Technologies</span>
             </h2>
           </motion.div>
           <motion.div
             variants={itemVariants}
-            className="w-16 h-0.5 bg-blue-400 mx-auto mb-4"
+            className="w-12 sm:w-16 h-0.5 bg-blue-400 mx-auto mb-3 sm:mb-4"
           ></motion.div>
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 max-w-2xl mx-auto text-sm"
+            className="text-gray-400 max-w-2xl mx-auto text-xs sm:text-sm px-4"
           >
             A comprehensive overview of my technical expertise and proficiency levels
           </motion.p>
@@ -164,7 +164,7 @@ const Skills = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12"
         >
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
@@ -178,19 +178,19 @@ const Skills = () => {
               onMouseEnter={() => setActiveCategory(category.title)}
               onMouseLeave={() => setActiveCategory(null)}
             >
-              <div className="bg-gray-800 rounded-xl p-6 h-full border border-gray-700 hover:border-blue-500/30 transition-all duration-300">
+              <div className="bg-gray-800 rounded-xl p-4 sm:p-6 h-full border border-gray-700 hover:border-blue-500/30 transition-all duration-300">
                 {/* Category Header */}
-                <div className="flex items-center space-x-3 mb-6">
-                  <div className="p-2 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                    <category.icon className="text-blue-400 w-5 h-5" />
+                <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
+                  <div className="p-1.5 sm:p-2 bg-blue-500/10 rounded-lg border border-blue-500/20">
+                    <category.icon className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <h3 className="text-lg font-semibold text-white">
+                  <h3 className="text-base sm:text-lg font-semibold text-white">
                     {category.title}
                   </h3>
                 </div>
                 
                 {/* Skills List */}
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.div
                       key={skill.name}
@@ -198,15 +198,15 @@ const Skills = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: (categoryIndex * 0.1) + (skillIndex * 0.05) }}
-                      className="space-y-2"
+                      className="space-y-1.5 sm:space-y-2"
                     >
                       <div className="flex justify-between items-center">
-                        <span className="text-gray-300 font-medium text-sm">{skill.name}</span>
+                        <span className="text-gray-300 font-medium text-xs sm:text-sm">{skill.name}</span>
                         <span className="text-blue-400 text-xs font-medium">
                           {skill.level}%
                         </span>
                       </div>
-                      <div className="w-full bg-gray-700 rounded-full h-1.5 overflow-hidden">
+                      <div className="w-full bg-gray-700 rounded-full h-1 sm:h-1.5 overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: animateProgress ? `${skill.level}%` : 0 }}
@@ -215,7 +215,7 @@ const Skills = () => {
                             duration: 1.5,
                             ease: "easeOut"
                           }}
-                          className="h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-blue-500"
+                          className="h-1 sm:h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-blue-500"
                         />
                       </div>
                     </motion.div>
@@ -232,17 +232,17 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.6 }}
-          className="bg-gray-800 rounded-xl p-8 border border-gray-700"
+          className="bg-gray-800 rounded-xl p-4 sm:p-6 lg:p-8 border border-gray-700"
         >
-          <div className="flex items-center justify-center space-x-2 mb-8">
-            <TrendingUp className="w-5 h-5 text-blue-400" />
-            <h3 className="text-xl font-bold text-white">
+          <div className="flex items-center justify-center space-x-2 mb-6 sm:mb-8">
+            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
+            <h3 className="text-lg sm:text-xl font-bold text-white">
               Additional Technologies
             </h3>
-            <TrendingUp className="w-5 h-5 text-blue-400" />
+            <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
           </div>
           
-          <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 xl:grid-cols-12 gap-4 w-full">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10 2xl:grid-cols-12 gap-2 sm:gap-4 w-full">
             {additionalSkills.map((skill, index) => (
               <motion.div
                 key={skill.name}
@@ -261,7 +261,7 @@ const Skills = () => {
                 }}
                 className="
                   bg-white/5 dark:bg-gray-800/80 
-                  rounded-lg p-3 
+                  rounded-lg p-2 sm:p-3 
                   text-center 
                   border border-gray-700/50 dark:border-gray-600/30
                   hover:border-blue-400/40
@@ -272,7 +272,7 @@ const Skills = () => {
                 "
               >
                 <div className="
-                  text-2xl mb-2 
+                  text-lg sm:text-2xl mb-1 sm:mb-2 
                   text-gray-200 dark:text-gray-100
                   transition-transform
                   hover:scale-110
@@ -284,6 +284,7 @@ const Skills = () => {
                   text-xs font-medium 
                   transition-colors
                   hover:text-blue-400
+                  leading-tight
                 ">
                   {skill.name}
                 </span>
@@ -298,28 +299,28 @@ const Skills = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"
+          className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6"
         >
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 hover:border-blue-500/30 transition-all duration-300"
+            className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700 hover:border-blue-500/30 transition-all duration-300"
           >
-            <div className="text-2xl font-bold mb-2 text-blue-400">6</div>
-            <div className="text-gray-300 text-sm">Skill Categories</div>
+            <div className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 text-blue-400">6</div>
+            <div className="text-gray-300 text-xs sm:text-sm">Skill Categories</div>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 hover:border-blue-500/30 transition-all duration-300"
+            className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700 hover:border-blue-500/30 transition-all duration-300"
           >
-            <div className="text-2xl font-bold mb-2 text-blue-400">30+</div>
-            <div className="text-gray-300 text-sm">Technologies</div>
+            <div className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 text-blue-400">30+</div>
+            <div className="text-gray-300 text-xs sm:text-sm">Technologies</div>
           </motion.div>
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="bg-gray-800 rounded-xl p-6 text-center border border-gray-700 hover:border-blue-500/30 transition-all duration-300"
+            className="bg-gray-800 rounded-xl p-4 sm:p-6 text-center border border-gray-700 hover:border-blue-500/30 transition-all duration-300"
           >
-            <div className="text-2xl font-bold mb-2 text-blue-400">90%</div>
-            <div className="text-gray-300 text-sm">Average Proficiency</div>
+            <div className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2 text-blue-400">90%</div>
+            <div className="text-gray-300 text-xs sm:text-sm">Average Proficiency</div>
           </motion.div>
         </motion.div>
       </div>

@@ -110,28 +110,28 @@ const Services = () => {
   };
 
   return (
-    <section id="services" className="py-20 bg-gray-900">
+    <section id="services" className="py-12 sm:py-16 lg:py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4"
           >
             My <span className="text-blue-400">Services</span>
           </motion.h2>
           <motion.div
             variants={itemVariants}
-            className="w-24 h-1 bg-blue-400 mx-auto"
+            className="w-16 sm:w-20 lg:w-24 h-0.5 sm:h-1 bg-blue-400 mx-auto"
           ></motion.div>
           <motion.p
             variants={itemVariants}
-            className="text-gray-400 mt-6 max-w-2xl mx-auto"
+            className="text-gray-400 mt-4 sm:mt-6 max-w-2xl mx-auto text-sm sm:text-base px-4"
           >
             Transforming ideas into reality with cutting-edge technology and creative solutions.
             Each service is tailored to meet your specific needs and deliver exceptional results.
@@ -144,7 +144,7 @@ const Services = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16"
         >
           {services.map((service, index) => (
             <motion.div
@@ -161,41 +161,41 @@ const Services = () => {
               {/* Service Card */}
               <motion.div
                 whileHover={{ y: -10 }}
-                className={`bg-gray-800 rounded-xl p-6 h-full border border-gray-700 hover:border-blue-500/50 transition-all duration-300 cursor-pointer ${hoveredService === service.id ? 'shadow-2xl shadow-blue-500/20' : ''}`}
+                className={`bg-gray-800 rounded-xl p-4 sm:p-6 h-full border border-gray-700 hover:border-blue-500/50 transition-all duration-300 cursor-pointer ${hoveredService === service.id ? 'shadow-2xl shadow-blue-500/20' : ''}`}
                 onClick={() => setActiveService(activeService === service.id ? null : service.id)}
               >
                 {/* Header */}
-                <div className="flex items-start justify-between mb-4">
-                  <div className={`p-3 rounded-lg ${service.bgColor}`}>
-                    <service.icon className={`w-6 h-6 ${service.iconColor}`} />
+                <div className="flex items-start justify-between mb-3 sm:mb-4">
+                  <div className={`p-2 sm:p-3 rounded-lg ${service.bgColor}`}>
+                    <service.icon className={`w-5 h-5 sm:w-6 sm:h-6 ${service.iconColor}`} />
                   </div>
                   <motion.div
                     animate={{ rotate: hoveredService === service.id ? 45 : 0 }}
                     transition={{ duration: 0.3 }}
                     className="text-gray-400 group-hover:text-blue-400"
                   >
-                    <ArrowRight className="w-5 h-5" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </motion.div>
                 </div>
 
                 {/* Title & Description */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
+                <h3 className="text-lg sm:text-xl font-bold text-white mb-2 sm:mb-3 group-hover:text-blue-400 transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
                   {service.description}
                 </p>
 
                 {/* Stats */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center space-x-2">
-                    <Users className="w-4 h-4 text-blue-400" />
-                    <span className="text-gray-400 text-sm">{service.projects} projects</span>
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <div className="flex items-center space-x-1.5 sm:space-x-2">
+                    <Users className="w-3 h-3 sm:w-4 sm:h-4 text-blue-400" />
+                    <span className="text-gray-400 text-xs sm:text-sm">{service.projects} projects</span>
                   </div>
                 </div>
 
                 {/* Features Preview */}
-                <div className="space-y-2">
+                <div className="space-y-1.5 sm:space-y-2">
                   {service.features.slice(0, 3).map((feature, featureIndex) => (
                     <motion.div
                       key={featureIndex}
@@ -203,9 +203,9 @@ const Services = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 + featureIndex * 0.1 }}
-                      className="flex items-center space-x-2"
+                      className="flex items-center space-x-1.5 sm:space-x-2"
                     >
-                      <CheckCircle className="w-4 h-4 text-green-400" />
+                      <CheckCircle className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
                       <span className="text-gray-300 text-xs">{feature}</span>
                     </motion.div>
                   ))}
@@ -237,7 +237,7 @@ const Services = () => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
-                className="bg-gray-800 rounded-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+                className="bg-gray-800 rounded-xl p-4 sm:p-6 lg:p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
               >
                 {(() => {
@@ -247,59 +247,59 @@ const Services = () => {
                   return (
                     <div>
                       {/* Header */}
-                      <div className="flex items-center justify-between mb-6">
-                        <div className="flex items-center space-x-4">
-                          <div className={`p-3 rounded-lg ${service.bgColor}`}>
-                            <service.icon className={`w-8 h-8 ${service.iconColor}`} />
+                      <div className="flex items-center justify-between mb-4 sm:mb-6">
+                        <div className="flex items-center space-x-3 sm:space-x-4">
+                          <div className={`p-2 sm:p-3 rounded-lg ${service.bgColor}`}>
+                            <service.icon className={`w-6 h-6 sm:w-8 sm:h-8 ${service.iconColor}`} />
                           </div>
                           <div>
-                            <h3 className="text-2xl font-bold text-white">{service.title}</h3>
-                            <p className="text-gray-400">{service.description}</p>
+                            <h3 className="text-xl sm:text-2xl font-bold text-white">{service.title}</h3>
+                            <p className="text-gray-400 text-sm sm:text-base">{service.description}</p>
                           </div>
                         </div>
                         <button
                           onClick={() => setActiveService(null)}
                           className="text-gray-400 hover:text-white transition-colors"
                         >
-                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                           </svg>
                         </button>
                       </div>
 
                       {/* Stats */}
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                        <div className="bg-gray-700 rounded-lg p-4 text-center">
-                          <div className="text-2xl font-bold text-green-400">{service.projects}</div>
-                          <div className="text-gray-400 text-sm">Projects</div>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6">
+                        <div className="bg-gray-700 rounded-lg p-3 sm:p-4 text-center">
+                          <div className="text-xl sm:text-2xl font-bold text-green-400">{service.projects}</div>
+                          <div className="text-gray-400 text-xs sm:text-sm">Projects</div>
                         </div>
                       </div>
 
                       {/* Features */}
                       <div>
-                        <h4 className="text-xl font-semibold text-white mb-4">What's Included</h4>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">What's Included</h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-3">
                           {service.features.map((feature, index) => (
                             <motion.div
                               key={index}
                               initial={{ opacity: 0, x: -20 }}
                               animate={{ opacity: 1, x: 0 }}
                               transition={{ delay: index * 0.1 }}
-                              className="flex items-center space-x-3 bg-gray-700 rounded-lg p-3"
+                              className="flex items-center space-x-2 sm:space-x-3 bg-gray-700 rounded-lg p-2 sm:p-3"
                             >
-                              <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
-                              <span className="text-gray-300">{feature}</span>
+                              <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-400 flex-shrink-0" />
+                              <span className="text-gray-300 text-sm sm:text-base">{feature}</span>
                             </motion.div>
                           ))}
                         </div>
                       </div>
 
                       {/* CTA Button */}
-                      <div className="mt-8 text-center">
+                      <div className="mt-6 sm:mt-8 text-center">
                         <motion.button
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+                          className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 text-sm sm:text-base"
                         >
                           Get Started
                         </motion.button>
@@ -318,23 +318,23 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="text-center bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-8"
+          className="text-center bg-gradient-to-r from-blue-600 to-cyan-600 rounded-xl p-4 sm:p-6 lg:p-8"
         >
-          <h3 className="text-2xl font-bold text-white mb-4">
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
             Ready to Start Your Project?
           </h3>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
+          <p className="text-blue-100 mb-4 sm:mb-6 max-w-2xl mx-auto text-sm sm:text-base px-4">
             Let's discuss your ideas and create something amazing together. 
             I'm here to help you bring your vision to life with cutting-edge technology.
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center space-x-2 mx-auto"
+            className="bg-white text-blue-600 px-6 sm:px-8 py-2.5 sm:py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex items-center space-x-2 mx-auto text-sm sm:text-base"
             onClick={scrollToContact}
           >
             <span>Let's Talk</span>
-            <Zap className="w-5 h-5" />
+            <Zap className="w-4 h-4 sm:w-5 sm:h-5" />
           </motion.button>
         </motion.div>
       </div>

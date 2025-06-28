@@ -8,11 +8,11 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-Commerce Platform',
+      title: 'Sevana Care - Elderly Care App',
       description: 'A full-stack e-commerce platform built with React, Node.js, and MongoDB. Features include user authentication, product management, shopping cart, and payment integration.',
-      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe', 'JWT'],
-      category: 'web',
+      image: '/elders.jpeg',
+      technologies: ['React Native'],
+      category: 'mobile',
       github: 'https://github.com',
       live: 'https://demo.com',
       featured: true
@@ -41,28 +41,6 @@ const Projects = () => {
     },
     {
       id: 4,
-      title: 'Data Visualization Dashboard',
-      description: 'Interactive dashboard for visualizing complex datasets with charts, graphs, and real-time data updates.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop',
-      technologies: ['React', 'D3.js', 'Python', 'Flask', 'PostgreSQL'],
-      category: 'data',
-      github: 'https://github.com',
-      live: 'https://demo.com',
-      featured: false
-    },
-    {
-      id: 5,
-      title: 'Mobile Fitness App',
-      description: 'Cross-platform mobile application for fitness tracking with workout plans, progress monitoring, and social features.',
-      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=500&h=300&fit=crop',
-      technologies: ['React Native', 'Firebase', 'Redux', 'Expo', 'Node.js'],
-      category: 'mobile',
-      github: 'https://github.com',
-      live: 'https://demo.com',
-      featured: false
-    },
-    {
-      id: 6,
       title: 'WeatherSphere',
       description: 'RESTful API for weather forecasting with caching, rate limiting, and multiple data sources integration.',
       image: '/weather.png',
@@ -103,24 +81,24 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gray-900">
+    <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4"
           >
             My <span className="text-blue-400">Projects</span>
           </motion.h2>
           <motion.div
             variants={itemVariants}
-            className="w-24 h-1 bg-blue-400 mx-auto"
+            className="w-16 sm:w-20 lg:w-24 h-0.5 sm:h-1 bg-blue-400 mx-auto"
           ></motion.div>
         </motion.div>
 
@@ -129,13 +107,13 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="flex flex-wrap justify-center gap-4 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12"
         >
           {filters.map((filter) => (
             <button
               key={filter.id}
               onClick={() => setActiveFilter(filter.id)}
-              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 ${
+              className={`px-3 sm:px-4 lg:px-6 py-1.5 sm:py-2 rounded-full font-medium transition-all duration-300 text-xs sm:text-sm ${
                 activeFilter === filter.id
                   ? 'bg-blue-600 text-white'
                   : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
@@ -154,7 +132,7 @@ const Projects = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           >
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -166,50 +144,50 @@ const Projects = () => {
                 className="bg-gray-800 rounded-lg overflow-hidden hover:transform hover:scale-105 transition-all duration-300 group"
               >
                 {/* Project Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-40 sm:h-48 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-3 sm:space-x-4">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gray-900 p-2 rounded-full hover:bg-blue-600 transition-colors"
+                      className="bg-gray-900 p-1.5 sm:p-2 rounded-full hover:bg-blue-600 transition-colors"
                     >
-                      <Github className="w-5 h-5 text-white" />
+                      <Github className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </a>
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gray-900 p-2 rounded-full hover:bg-blue-600 transition-colors"
+                      className="bg-gray-900 p-1.5 sm:p-2 rounded-full hover:bg-blue-600 transition-colors"
                     >
-                      <ExternalLink className="w-5 h-5 text-white" />
+                      <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                     </a>
                   </div>
                   {project.featured && (
-                    <div className="absolute top-4 left-4 bg-blue-600 text-white px-2 py-1 rounded text-xs font-medium">
+                    <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-blue-600 text-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-xs font-medium">
                       Featured
                     </div>
                   )}
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-400 text-sm mb-4 line-clamp-3">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-2">{project.title}</h3>
+                  <p className="text-gray-400 text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-3">
                     {project.description}
                   </p>
                   
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3 sm:mb-4">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-gray-700 text-blue-400 px-2 py-1 rounded text-xs font-medium"
+                        className="bg-gray-700 text-blue-400 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-xs font-medium"
                       >
                         {tech}
                       </span>
@@ -217,23 +195,23 @@ const Projects = () => {
                   </div>
 
                   {/* Project Links */}
-                  <div className="flex space-x-4">
+                  <div className="flex space-x-3 sm:space-x-4">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors text-sm"
+                      className="flex items-center space-x-1.5 sm:space-x-2 text-blue-400 hover:text-blue-300 transition-colors text-xs sm:text-sm"
                     >
-                      <Github className="w-4 h-4" />
+                      <Github className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span>Code</span>
                     </a>
                     <a
                       href={project.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors text-sm"
+                      className="flex items-center space-x-1.5 sm:space-x-2 text-blue-400 hover:text-blue-300 transition-colors text-xs sm:text-sm"
                     >
-                      <Globe className="w-4 h-4" />
+                      <Globe className="w-3 h-3 sm:w-4 sm:h-4" />
                       <span>Live Demo</span>
                     </a>
                   </div>

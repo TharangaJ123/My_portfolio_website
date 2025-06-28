@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Download, Mail, Code, Database, Smartphone, Palette, Cloud, Zap, ArrowRight, Sparkles, Star, Target, TrendingUp } from 'lucide-react';
+import { ChevronDown, Download, Mail, Code, Database, Smartphone, Palette, Cloud, Zap, ArrowRight, Sparkles, Star, Target, TrendingUp, Award, Trophy, CheckCircle, Rocket, Globe, Shield } from 'lucide-react';
 
 const Hero = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -20,6 +20,13 @@ const Hero = () => {
     <Palette key="palette" className="w-6 h-6" />,
     <Smartphone key="smartphone" className="w-6 h-6" />,
     <Code key="fullstack" className="w-6 h-6" />
+  ];
+
+  // Achievement badges
+  const achievements = [
+    { icon: Award, title: 'Top Performer', subtitle: 'Academic Excellence', color: 'text-yellow-400' },
+    { icon: Trophy, title: 'Pro Active', subtitle: 'Innovation Award', color: 'text-purple-400' },
+    { icon: Rocket, title: 'Fast Learner', subtitle: 'Quick Adaptation', color: 'text-green-400' }
   ];
 
   useEffect(() => {
@@ -152,12 +159,12 @@ const Hero = () => {
       </motion.div>
 
       {/* Main Content Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full h-screen">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center h-full pt-16 lg:pt-0">
           
           {/* Left Side - Content */}
           <motion.div 
-            className="space-y-8"
+            className="space-y-4 sm:space-y-6 text-center lg:text-left"
             animate={{
               x: mousePosition.x * 0.5,
               y: mousePosition.y * 0.5,
@@ -169,9 +176,9 @@ const Hero = () => {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 text-blue-400 text-sm font-medium backdrop-blur-sm"
+              className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-blue-400 text-xs sm:text-sm font-medium backdrop-blur-sm"
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>Hello, I'm</span>
             </motion.div>
 
@@ -180,7 +187,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight"
             >
               <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent">
                 Tharanga
@@ -192,7 +199,7 @@ const Hero = () => {
             </motion.h1>
 
             {/* Dynamic Title with enhanced animation */}
-            <div className="text-xl md:text-2xl lg:text-3xl text-gray-300 font-medium min-h-[3rem] flex items-center overflow-hidden">
+            <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-300 font-medium min-h-[2.5rem] sm:min-h-[3rem] flex items-center justify-center lg:justify-start overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.h2
                   key={currentRoleIndex}
@@ -212,7 +219,7 @@ const Hero = () => {
                     duration: 0.6,
                     ease: "easeInOut"
                   }}
-                  className="flex items-center space-x-3"
+                  className="flex items-center space-x-2 sm:space-x-3"
                 >
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
@@ -243,7 +250,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="text-lg text-gray-400 leading-relaxed max-w-lg"
+              className="text-sm sm:text-base lg:text-lg text-gray-400 leading-relaxed max-w-lg mx-auto lg:mx-0"
             >
               Passionate about creating innovative software solutions and learning new technologies. 
               Currently pursuing my degree in Software Engineering with expertise in multiple domains.
@@ -254,55 +261,55 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
-              className="grid grid-cols-3 gap-6"
+              className="grid grid-cols-3 gap-2 sm:gap-4 max-w-sm mx-auto lg:mx-0"
             >
               <motion.div
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
+                className="text-center p-2 sm:p-3 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
               >
-                <div className="text-2xl font-bold text-blue-400 mb-1">26+</div>
-                <div className="text-gray-400 text-sm">Projects</div>
+                <div className="text-lg sm:text-xl font-bold text-blue-400 mb-1">26+</div>
+                <div className="text-gray-400 text-xs">Projects</div>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
+                className="text-center p-2 sm:p-3 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
               >
-                <div className="text-2xl font-bold text-green-400 mb-1">5+</div>
-                <div className="text-gray-400 text-sm">Technologies</div>
+                <div className="text-lg sm:text-xl font-bold text-green-400 mb-1">5+</div>
+                <div className="text-gray-400 text-xs">Technologies</div>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="text-center p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
+                className="text-center p-2 sm:p-3 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
               >
-                <div className="text-2xl font-bold text-purple-400 mb-1">6+</div>
-                <div className="text-gray-400 text-sm">Months Experience</div>
+                <div className="text-lg sm:text-xl font-bold text-purple-400 mb-1">6+</div>
+                <div className="text-gray-400 text-xs">Months Experience</div>
               </motion.div>
             </motion.div>
           </motion.div>
 
           {/* Right Side - Buttons and Visual Elements */}
           <motion.div 
-            className="flex flex-col items-center lg:items-end justify-center space-y-8"
+            className="flex flex-col items-center justify-center space-y-4 sm:space-y-6 lg:items-end lg:justify-center"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
             {/* Main CTA Buttons */}
-            <div className="space-y-6 w-full max-w-md">
+            <div className="space-y-4 sm:space-y-6 w-full max-w-sm sm:max-w-md">
               <motion.button
                 onClick={scrollToContact}
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 group shadow-lg hover:shadow-xl hover:shadow-blue-500/25 border border-blue-500/20"
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 group shadow-lg hover:shadow-xl hover:shadow-blue-500/25 border border-blue-500/20 text-sm sm:text-base"
               >
-                <Mail size={20} />
+                <Mail size={18} className="sm:w-5 sm:h-5" />
                 Get In Touch
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                   className="group-hover:translate-x-1 transition-transform"
                 >
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </motion.div>
               </motion.button>
               
@@ -310,9 +317,9 @@ const Hero = () => {
                 onClick={downloadCV}
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-gray-800/50 border-2 border-blue-400/50 text-blue-400 hover:bg-blue-400/10 hover:border-blue-400 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-3 group shadow-lg hover:shadow-xl hover:shadow-blue-400/25 backdrop-blur-sm"
+                className="w-full bg-gray-800/50 border-2 border-blue-400/50 text-blue-400 hover:bg-blue-400/10 hover:border-blue-400 px-6 sm:px-8 py-2.5 sm:py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 group shadow-lg hover:shadow-xl hover:shadow-blue-400/25 backdrop-blur-sm text-sm sm:text-base"
               >
-                <Download size={20} />
+                <Download size={18} className="sm:w-5 sm:h-5" />
                 Download CV
                 <motion.div
                   animate={{ y: [0, 2, 0] }}
@@ -324,40 +331,70 @@ const Hero = () => {
               </motion.button>
             </div>
 
-            {/* Visual Elements */}
+            {/* Visual Elements - Hidden on mobile, shown on larger screens */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 1.4, duration: 0.8 }}
-              className="flex items-center space-x-6"
+              className="hidden sm:flex items-center space-x-3 sm:space-x-4"
             >
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                className="p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
+                className="p-2 sm:p-3 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
               >
-                <Target className="w-6 h-6 text-green-400" />
+                <Target className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.1, rotate: -5 }}
-                className="p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
+                className="p-2 sm:p-3 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
               >
-                <TrendingUp className="w-6 h-6 text-blue-400" />
+                <TrendingUp className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400" />
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}
-                className="p-4 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
+                className="p-2 sm:p-3 bg-gray-800/50 rounded-xl border border-gray-700/50 backdrop-blur-sm"
               >
-                <Star className="w-6 h-6 text-yellow-400" />
+                <Star className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400" />
               </motion.div>
             </motion.div>
 
-            {/* Floating Elements */}
+            {/* Achievement Badges - Responsive layout */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.6, duration: 0.8 }}
+              className="w-full max-w-sm sm:max-w-md"
+            >
+              <h4 className="text-white font-semibold text-center lg:text-right text-sm sm:text-base mb-2 sm:mb-3">Achievements</h4>
+              <div className="space-y-1.5 sm:space-y-2">
+                {achievements.map((achievement, index) => (
+                  <motion.div
+                    key={achievement.title}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.8 + index * 0.1, duration: 0.5 }}
+                    whileHover={{ scale: 1.02, x: -5 }}
+                    className="flex items-center space-x-2 sm:space-x-3 p-1.5 sm:p-2 bg-gray-800/50 rounded-lg border border-gray-700/50 backdrop-blur-sm group hover:border-blue-500/30 transition-all duration-300"
+                  >
+                    <div className={`p-1 sm:p-1.5 rounded-lg bg-gray-700/50 ${achievement.color}`}>
+                      <achievement.icon className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
+                    </div>
+                    <div>
+                      <div className="text-white text-xs font-medium">{achievement.title}</div>
+                      <div className="text-gray-400 text-xs">{achievement.subtitle}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Floating Elements - Hidden on mobile */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="hidden lg:block"
             >
-              <div className="w-32 h-32 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-xl"></div>
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-blue-500/20 to-cyan-500/20 rounded-full blur-xl"></div>
             </motion.div>
           </motion.div>
         </div>

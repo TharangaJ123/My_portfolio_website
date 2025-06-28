@@ -13,19 +13,19 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-center">
           {/* Logo and Description */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center md:text-left"
+            className="text-center sm:text-left"
           >
-            <h3 className="text-2xl font-bold text-blue-400 mb-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-blue-400 mb-2">
               Tharanga Jayawardhana
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-400 text-xs sm:text-sm">
               Software Engineering Student passionate about creating innovative solutions and learning new technologies.
             </p>
           </motion.div>
@@ -38,8 +38,8 @@ const Footer = () => {
             transition={{ delay: 0.1 }}
             className="text-center"
           >
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
+            <h4 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Quick Links</h4>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 text-xs sm:text-sm">
               {['About', 'Skills', 'Projects', 'Experience', 'Contact','Services'].map((link) => (
                 <a
                   key={link}
@@ -65,10 +65,10 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-center md:text-right"
+            className="text-center sm:text-right"
           >
-            <h4 className="text-white font-semibold mb-4">Connect</h4>
-            <div className="flex justify-center md:justify-end space-x-4">
+            <h4 className="text-white font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Connect</h4>
+            <div className="flex justify-center sm:justify-end space-x-3 sm:space-x-4">
               {socialLinks.map((social, index) => (
                 <motion.a
                   key={social.label}
@@ -80,9 +80,9 @@ const Footer = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.2 + (index * 0.1) }}
                   whileHover={{ scale: 1.1 }}
-                  className="p-2 bg-gray-800 rounded-lg hover:bg-blue-600 transition-all duration-300 group"
+                  className="p-1.5 sm:p-2 bg-gray-800 rounded-lg hover:bg-blue-600 transition-all duration-300 group"
                 >
-                  <social.icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                  <social.icon className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 group-hover:text-white transition-colors" />
                 </motion.a>
               ))}
             </div>
@@ -95,10 +95,10 @@ const Footer = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="border-t border-gray-800 mt-8 pt-8"
+          className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8"
         >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <p className="text-gray-400 text-sm text-center md:text-left">
+          <div className="flex flex-col sm:flex-row justify-between items-center space-y-3 sm:space-y-0">
+            <p className="text-gray-400 text-xs sm:text-sm text-center sm:text-left">
               © {currentYear} Tharanga Jayawardhana. All rights reserved.
             </p>
             <motion.p
@@ -106,10 +106,10 @@ const Footer = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="text-gray-400 text-sm flex items-center space-x-1"
+              className="text-gray-400 text-xs sm:text-sm flex items-center space-x-1"
             >
               <span>Made with</span>
-              <Heart className="w-4 h-4 text-red-500 animate-pulse" />
+              <Heart className="w-3 h-3 sm:w-4 sm:h-4 text-red-500 animate-pulse" />
               <span>using React & Tailwind CSS</span>
             </motion.p>
           </div>
@@ -122,10 +122,10 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
+          className="fixed bottom-4 sm:bottom-8 right-4 sm:right-8 bg-blue-600 hover:bg-blue-700 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
         >
           <svg
-            className="w-6 h-6"
+            className="w-5 h-5 sm:w-6 sm:h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

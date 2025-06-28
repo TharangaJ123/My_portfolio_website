@@ -69,24 +69,24 @@ const Experience = () => {
   };
 
   return (
-    <section id="experience" className="py-20 bg-gray-800">
+    <section id="experience" className="py-12 sm:py-16 lg:py-20 bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={containerVariants}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4"
           >
             My <span className="text-blue-400">Experience</span>
           </motion.h2>
           <motion.div
             variants={itemVariants}
-            className="w-24 h-1 bg-blue-400 mx-auto"
+            className="w-16 sm:w-20 lg:w-24 h-0.5 sm:h-1 bg-blue-400 mx-auto"
           ></motion.div>
         </motion.div>
 
@@ -94,7 +94,7 @@ const Experience = () => {
           {/* Timeline Line */}
           <div className="absolute left-4 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-0.5 bg-gray-600"></div>
 
-          <div className="space-y-12">
+          <div className="space-y-8 sm:space-y-12">
             {experiences.map((experience, index) => (
               <motion.div
                 key={experience.id}
@@ -107,56 +107,56 @@ const Experience = () => {
                 }`}
               >
                 {/* Timeline Dot */}
-                <div className={`absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 rounded-full border-4 border-gray-800 bg-blue-400 z-10 ${
+                <div className={`absolute left-4 md:left-1/2 transform md:-translate-x-1/2 w-3 h-3 sm:w-4 sm:h-4 rounded-full border-4 border-gray-800 bg-blue-400 z-10 ${
                   experience.type === 'work' ? 'bg-blue-400' : 'bg-green-400'
                 }`}></div>
 
                 {/* Content Card */}
-                <div className={`ml-12 md:ml-0 md:w-5/12 ${
-                  index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
+                <div className={`ml-10 sm:ml-12 md:ml-0 md:w-5/12 ${
+                  index % 2 === 0 ? 'md:mr-auto md:pr-6 lg:pr-8' : 'md:ml-auto md:pl-6 lg:pl-8'
                 }`}>
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.2 + 0.3 }}
-                    className="bg-gray-900 rounded-lg p-6 hover:bg-gray-850 transition-colors duration-300"
+                    className="bg-gray-900 rounded-lg p-4 sm:p-6 hover:bg-gray-850 transition-colors duration-300"
                   >
                     {/* Header */}
-                    <div className="flex items-start space-x-3 mb-4">
-                      <div className={`p-2 rounded-lg ${
+                    <div className="flex items-start space-x-2 sm:space-x-3 mb-3 sm:mb-4">
+                      <div className={`p-1.5 sm:p-2 rounded-lg ${
                         experience.type === 'work' ? 'bg-blue-600' : 'bg-green-600'
                       }`}>
-                        <experience.icon className="w-5 h-5 text-white" />
+                        <experience.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-white mb-1">
+                        <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
                           {experience.title}
                         </h3>
-                        <p className="text-blue-400 font-medium">
+                        <p className="text-blue-400 font-medium text-sm sm:text-base">
                           {experience.company}
                         </p>
                       </div>
                     </div>
 
                     {/* Details */}
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center space-x-2 text-gray-400 text-sm">
-                        <Calendar className="w-4 h-4" />
+                    <div className="space-y-1.5 sm:space-y-2 mb-3 sm:mb-4">
+                      <div className="flex items-center space-x-1.5 sm:space-x-2 text-gray-400 text-xs sm:text-sm">
+                        <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
                         <span>{experience.period}</span>
                       </div>
-                      <div className="flex items-center space-x-2 text-gray-400 text-sm">
-                        <MapPin className="w-4 h-4" />
+                      <div className="flex items-center space-x-1.5 sm:space-x-2 text-gray-400 text-xs sm:text-sm">
+                        <MapPin className="w-3 h-3 sm:w-4 sm:h-4" />
                         <span>{experience.location}</span>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <div className="mb-4">
-                      <ul className="space-y-2">
+                    <div className="mb-3 sm:mb-4">
+                      <ul className="space-y-1.5 sm:space-y-2">
                         {experience.description.map((item, itemIndex) => (
-                          <li key={itemIndex} className="text-gray-300 text-sm flex items-start space-x-2">
-                            <span className="text-blue-400 mt-1">•</span>
+                          <li key={itemIndex} className="text-gray-300 text-xs sm:text-sm flex items-start space-x-1.5 sm:space-x-2">
+                            <span className="text-blue-400 mt-0.5 sm:mt-1">•</span>
                             <span>{item}</span>
                           </li>
                         ))}
@@ -164,11 +164,11 @@ const Experience = () => {
                     </div>
 
                     {/* Technologies */}
-                    <div className="flex flex-wrap gap-2">
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
                       {experience.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="bg-gray-700 text-blue-400 px-2 py-1 rounded text-xs font-medium"
+                          className="bg-gray-700 text-blue-400 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded text-xs font-medium"
                         >
                           {tech}
                         </span>
@@ -187,15 +187,15 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.8 }}
-          className="mt-16 flex justify-center space-x-8"
+          className="mt-8 sm:mt-12 lg:mt-16 flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-6 lg:space-x-8"
         >
-          <div className="flex items-center space-x-2">
-            <div className="w-4 h-4 rounded-full bg-blue-400"></div>
-            <span className="text-gray-300">Work Experience</span>
+          <div className="flex items-center space-x-1.5 sm:space-x-2">
+            <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-blue-400"></div>
+            <span className="text-gray-300 text-sm sm:text-base">Work Experience</span>
           </div>
-          <div className="flex items-center space-x-2">
-            <div className="w-4 h-4 rounded-full bg-green-400"></div>
-            <span className="text-gray-300">Education</span>
+          <div className="flex items-center space-x-1.5 sm:space-x-2">
+            <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-green-400"></div>
+            <span className="text-gray-300 text-sm sm:text-base">Education</span>
           </div>
         </motion.div>
       </div>

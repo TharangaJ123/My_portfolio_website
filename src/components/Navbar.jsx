@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar = ({ VoiceAssistantComponent }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -48,15 +48,15 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold text-blue-400">
-              {getGreeting()} !
+            <h1 className="text-lg sm:text-2xl font-bold text-blue-400">
+              {getGreeting() + '!'}
             </h1>
           </div>          
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
+            <div className="ml-10 flex items-baseline space-x-8 items-center min-w-0">
+              {navItems.map((item, idx) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
@@ -65,18 +65,27 @@ const Navbar = () => {
                   {item.name}
                 </button>
               ))}
+              {/* Voice Assistant next to Contact */}
+              {VoiceAssistantComponent && (
+                <div className="ml-4 mr-24 flex items-center min-w-0">{VoiceAssistantComponent}</div>
+              )}
             </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden z-50 ml-1">
+          <div className="md:hidden flex items-center gap-1 z-10 ml-1 min-w-0">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-blue-400 p-2 focus:outline-none"
               aria-label="Open navigation menu"
+              style={{ zIndex: 60 }}
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
+            {/* Voice Assistant on mobile, right of toggle */}
+            {VoiceAssistantComponent && (
+              <div className="flex items-center min-w-0 mr-8">{VoiceAssistantComponent}</div>
+            )}
           </div>
         </div>
 
@@ -93,6 +102,10 @@ const Navbar = () => {
                   {item.name}
                 </button>
               ))}
+              {/* Voice Assistant in mobile menu */}
+              {VoiceAssistantComponent && (
+                <div className="flex justify-center mt-6 align-baseline">{VoiceAssistantComponent}</div>
+              )}
             </div>
           </div>
         )}

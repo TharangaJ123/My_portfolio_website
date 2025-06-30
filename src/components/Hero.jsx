@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Download, Mail, Code, Database, Smartphone, Palette, Cloud, Zap, ArrowRight, Sparkles, Star, Target, TrendingUp, Award, Trophy, CheckCircle, Rocket, Globe, Shield, Brain, MessageCircle, Users, BookOpen } from 'lucide-react';
+import NetworkBackground from './NetworkBackground';
 
 const Hero = () => {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
@@ -84,83 +85,8 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-blue-900/20 to-black relative overflow-hidden">
-      {/* Enhanced Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
-      </div>
-
-      {/* Gradient Orbs */}
-      <motion.div
-        className="absolute top-20 left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.3, 0.1],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-20 right-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.3, 0.1, 0.3],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
-
-      {/* Floating Particles */}
-      {particles.map((particle) => (
-        <motion.div
-          key={particle.id}
-          className="absolute w-1 h-1 bg-blue-400 rounded-full opacity-30"
-          style={{
-            left: `${particle.x}%`,
-            top: `${particle.y}%`,
-            width: `${particle.size}px`,
-            height: `${particle.size}px`,
-          }}
-          animate={{
-            y: [0, -30, 0],
-            opacity: [0.3, 0.8, 0.3],
-          }}
-          transition={{
-            duration: particle.duration,
-            delay: particle.delay,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-
-      {/* Floating Tech Icons */}
-      <motion.div
-        className="absolute top-20 left-10 text-blue-400/20"
-        animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <Code size={40} />
-      </motion.div>
-      <motion.div
-        className="absolute top-40 right-20 text-cyan-400/20"
-        animate={{ y: [0, 15, 0], rotate: [0, -5, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-      >
-        <Database size={35} />
-      </motion.div>
-      <motion.div
-        className="absolute bottom-40 left-20 text-purple-400/20"
-        animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      >
-        <Smartphone size={30} />
-      </motion.div>
-      <motion.div
-        className="absolute bottom-20 right-10 text-green-400/20"
-        animate={{ y: [0, 10, 0], rotate: [0, -10, 0] }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-      >
-        <Palette size={35} />
-      </motion.div>
-
+      {/* Network of Points and Edges Animated Background */}
+      <NetworkBackground mousePosition={mousePosition} />
       {/* Main Content Container */}
       <div className="relative z-10 flex items-center justify-center ">
         <div className="w-full max-w-5xl mx-auto p-6 sm:p-10 md:p-14 flex flex-col lg:flex-row gap-10 lg:gap-16">

@@ -114,8 +114,11 @@ const Skills = () => {
   };
 
   return (
-    <section id="skills" className="py-12 sm:py-16 bg-gray-900">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-12 sm:py-16 bg-gray-900 relative overflow-hidden">
+      {/* Blurred gradient background for depth */}
+      <div className="absolute -top-32 -left-32 w-[400px] h-[400px] bg-gradient-to-br from-blue-500/30 via-cyan-400/20 to-purple-500/20 rounded-full blur-3xl z-0" />
+      <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-gradient-to-tr from-blue-400/20 via-cyan-400/10 to-purple-400/10 rounded-full blur-2xl z-0" />
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial="hidden"
@@ -147,7 +150,7 @@ const Skills = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={containerVariants}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12"
         >
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
@@ -161,17 +164,22 @@ const Skills = () => {
               onMouseEnter={() => setActiveCategory(category.title)}
               onMouseLeave={() => setActiveCategory(null)}
             >
-              <div className="bg-gray-800 rounded-xl p-4 sm:p-6 h-full border border-gray-700 hover:border-blue-500/30 transition-all duration-300">
+              <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-5 sm:p-7 h-full border border-blue-400/10 shadow-xl hover:shadow-2xl hover:scale-[1.03] hover:border-blue-400/40 transition-all duration-300 relative overflow-hidden">
+                {/* Animated glow on hover */}
+                <div className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-blue-400/10 via-cyan-400/10 to-purple-400/10 blur-lg" />
                 {/* Category Header */}
                 <div className="flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6">
-                  <div className="p-1.5 sm:p-2 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                    <category.icon className="text-blue-400 w-4 h-4 sm:w-5 sm:h-5" />
-                  </div>
+                  <motion.div
+                    className="p-2 sm:p-2.5 bg-blue-500/10 rounded-lg border border-blue-500/20 flex items-center justify-center"
+                    animate={activeCategory === category.title ? { rotate: [0, 10, -10, 0] } : { rotate: 0 }}
+                    transition={{ duration: 0.7, repeat: activeCategory === category.title ? Infinity : 0, repeatType: 'loop' }}
+                  >
+                    <category.icon className="text-blue-400 w-5 h-5 sm:w-6 sm:h-6" />
+                  </motion.div>
                   <h3 className="text-base sm:text-lg font-semibold text-white">
                     {category.title}
                   </h3>
                 </div>
-                
                 {/* Skills List */}
                 <div className="space-y-3 sm:space-y-4">
                   {category.skills.map((skill, skillIndex) => (
@@ -189,7 +197,7 @@ const Skills = () => {
                           {skill.level}%
                         </span>
                       </div>
-                      <div className="w-full bg-gray-700 rounded-full h-1 sm:h-1.5 overflow-hidden">
+                      <div className="w-full bg-gradient-to-r from-gray-700 via-gray-800 to-gray-700 rounded-full h-1.5 sm:h-2 overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: animateProgress ? `${skill.level}%` : 0 }}
@@ -198,7 +206,7 @@ const Skills = () => {
                             duration: 1.5,
                             ease: "easeOut"
                           }}
-                          className="h-1 sm:h-1.5 rounded-full bg-gradient-to-r from-blue-400 to-blue-500"
+                          className="h-full rounded-full bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-400 shadow-md"
                         />
                       </div>
                     </motion.div>

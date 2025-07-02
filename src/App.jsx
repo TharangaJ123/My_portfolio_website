@@ -9,6 +9,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import VoiceAssistant from './components/VoiceAssistant';
 import { useState, useCallback } from 'react';
+import ReactGA from "react-ga4";
+
+ReactGA.initialize("G-KP57M0HSQ9"); // Replace with your GA Measurement ID
+ReactGA.send("pageview");
 
 function App() {
   const [voicePrompt, setVoicePrompt] = useState('Try it saying : "Go to About.."');

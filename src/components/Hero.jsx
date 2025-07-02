@@ -83,6 +83,13 @@ const Hero = () => {
     delay: Math.random() * 5,
   }));
 
+  const getGreeting = () => {
+    const hour = new Date().getHours();
+    if (hour < 12) return 'Good Morning';
+    if (hour < 18) return 'Good Afternoon';
+    return 'Good Evening';
+  };
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-blue-900/20 to-black relative overflow-hidden">
       {/* Network of Points and Edges Animated Background */}
@@ -100,7 +107,7 @@ const Hero = () => {
               className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-3 sm:px-4 py-1.5 sm:py-2 text-blue-400 text-xs sm:text-sm font-medium backdrop-blur-sm mb-2 mt-10 sm:mt-0"
             >
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Hello, I'm</span>
+              <span>{getGreeting()}, I'm</span>
             </motion.div>
             {/* Name with shimmer */}
             <motion.h1

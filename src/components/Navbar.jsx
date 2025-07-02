@@ -13,13 +13,6 @@ const Navbar = ({ VoiceAssistantComponent }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const getGreeting = () => {
-    const hour = new Date().getHours();
-    if (hour < 12) return 'Good Morning';
-    if (hour < 18) return 'Good Afternoon';
-    return 'Good Evening';
-  };
-
   const navItems = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
@@ -49,7 +42,7 @@ const Navbar = ({ VoiceAssistantComponent }) => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <h1 className="text-lg sm:text-2xl font-bold text-blue-400">
-              {getGreeting() + '!'}
+              TJ
             </h1>
           </div>          
 
